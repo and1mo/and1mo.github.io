@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashwyn Molloy | Junior Fullstack Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #6366f1; 
@@ -17,7 +16,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-        /* Header & Intro */
         header {
             padding: 80px 20px;
             text-align: center;
@@ -27,20 +25,16 @@
         .profile-img {
             width: 140px; height: 140px; border-radius: 50%;
             border: 3px solid var(--primary); margin-bottom: 20px;
-            object-fit: cover;
         }
         h1 { font-size: 2.8rem; margin-bottom: 10px; }
         .tagline { color: var(--primary); font-weight: bold; font-size: 1.2rem; margin-bottom: 20px; }
 
-        /* Sections */
         .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
         h2 { font-size: 1.8rem; margin-bottom: 20px; color: var(--primary); border-bottom: 1px solid #30363d; padding-bottom: 10px; }
         
-        /* About Me Description */
         .about-text { font-size: 1.1rem; color: var(--text); margin-bottom: 30px; }
         .highlight { color: var(--primary); font-weight: 600; }
 
-        /* Project Cards */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .project-card {
             background: var(--card); border: 1px solid #30363d;
@@ -48,9 +42,18 @@
         }
         .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
         .tech-tag { font-size: 0.7rem; font-weight: bold; color: var(--primary); display: block; margin-bottom: 8px; }
-        .links a { color: var(--text); text-decoration: none; margin-right: 15px; font-weight: bold; font-size: 0.9rem; border-bottom: 2px solid var(--primary); }
+        
+        .project-link { 
+            display: inline-block;
+            color: var(--text); 
+            text-decoration: none; 
+            margin-top: 15px;
+            font-weight: bold; 
+            font-size: 0.9rem; 
+            border-bottom: 2px solid var(--primary); 
+        }
 
-        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.9rem; }
+        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid #30363d; }
     </style>
 </head>
 <body>
@@ -65,8 +68,6 @@
         <h2>About Me</h2>
         <div class="about-text">
             <p>I am a <span class="highlight">passionate starter in web development</span> with a focus on building clean, functional, and user-centered applications. My journey began with a curiosity for how the web works, which evolved into a dedicated path of learning <span class="highlight">PHP, JavaScript, and modern CSS</span>.</p>
-            <br>
-            <p>As a junior developer, I thrive on solving logical puzzles and turning ideas into interactive reality. I am currently honing my skills in fullstack architecture, focusing on how backend data (PHP/MySQL) powers the frontend experience (HTML/JS). I am eager to contribute to a collaborative team where I can grow and tackle real-world challenges.</p>
         </div>
     </div>
 
@@ -74,34 +75,23 @@
         <h2>Technical Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <span class="tech-tag">PHP • MYSQL • CSS</span>
+                <span class="tech-tag">PHP • MYSQL</span>
                 <h3>Secure Task Manager</h3>
-                <p>A fullstack CRUD application allowing users to manage daily tasks with secure login and data persistence.</p>
-                <div class="links"><a href="#">GitHub</a><a href="#">Demo</a></div>
+                <p>Fullstack CRUD application with secure login and data persistence.</p>
+                <a href="task-manager.html" class="project-link">View Project Details</a>
             </div>
 
             <div class="project-card">
-                <span class="tech-tag">JAVASCRIPT (ES6) • API</span>
+                <span class="tech-tag">JAVASCRIPT • API</span>
                 <h3>Dynamic Weather Hub</h3>
-                <p>Fetches real-time data from OpenWeather API to provide localized forecasts with dynamic UI updates.</p>
-                <div class="links"><a href="#">GitHub</a><a href="#">Demo</a></div>
-            </div>
-
-            <div class="project-card">
-                <span class="tech-tag">HTML5 • FLEXBOX • ANIMATIONS</span>
-                <h3>Creative Agency Landing Page</h3>
-                <p>A mobile-first responsive landing page focused on high-performance animations and modern typography.</p>
-                <div class="links"><a href="#">GitHub</a><a href="#">Demo</a></div>
+                <p>Real-time weather data visualization using OpenWeather API.</p>
+                <a href="weather-hub.html" class="project-link">View Project Details</a>
             </div>
         </div>
     </div>
 
     <footer>
         <p>Built by Ashwyn Molloy &copy; 2025 | Open to New Opportunities</p>
-        <div style="margin-top:15px">
-            <a href="#" style="color:var(--text-dim); font-size:1.5rem; margin:0 10px"><i class="fab fa-github"></i></a>
-            <a href="#" style="color:var(--text-dim); font-size:1.5rem; margin:0 10px"><i class="fab fa-linkedin"></i></a>
-        </div>
     </footer>
 
 </body>
