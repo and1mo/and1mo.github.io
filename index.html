@@ -6,7 +6,7 @@
     <title>Ashwyn Molloy | Junior Fullstack Developer</title>
     <style>
         :root {
-            --primary: #6366f1; 
+            --primary: #fb923c; /* Orange theme to match Open Food Facts */
             --bg: #0b0e14;
             --card: #161b22;
             --text: #e6edf3;
@@ -16,6 +16,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
+        /* Header Section */
         header {
             padding: 80px 20px;
             text-align: center;
@@ -25,23 +26,27 @@
         .profile-img {
             width: 140px; height: 140px; border-radius: 50%;
             border: 3px solid var(--primary); margin-bottom: 20px;
+            object-fit: cover;
         }
         h1 { font-size: 2.8rem; margin-bottom: 10px; }
-        .tagline { color: var(--primary); font-weight: bold; font-size: 1.2rem; margin-bottom: 20px; }
+        .tagline { color: var(--primary); font-weight: bold; font-size: 1.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
+        /* General Container */
         .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
         h2 { font-size: 1.8rem; margin-bottom: 20px; color: var(--primary); border-bottom: 1px solid #30363d; padding-bottom: 10px; }
         
+        /* About Section */
         .about-text { font-size: 1.1rem; color: var(--text); margin-bottom: 30px; }
         .highlight { color: var(--primary); font-weight: 600; }
 
+        /* Project Grid */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .project-card {
             background: var(--card); border: 1px solid #30363d;
-            border-radius: 10px; padding: 25px; transition: 0.3s;
+            border-radius: 12px; padding: 25px; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .tech-tag { font-size: 0.7rem; font-weight: bold; color: var(--primary); display: block; margin-bottom: 8px; }
+        .tech-tag { font-size: 0.7rem; font-weight: bold; color: var(--primary); display: block; margin-bottom: 8px; text-transform: uppercase; }
         
         .project-link { 
             display: inline-block;
@@ -51,15 +56,17 @@
             font-weight: bold; 
             font-size: 0.9rem; 
             border-bottom: 2px solid var(--primary); 
+            transition: 0.2s;
         }
+        .project-link:hover { padding-left: 5px; color: var(--primary); }
 
-        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid #30363d; }
+        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid #30363d; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="https://ui-avatars.com/api/?name=Ashwyn+Molloy&background=6366f1&color=fff&size=150" alt="AM" class="profile-img">
+        <img src="https://ui-avatars.com/api/?name=Ashwyn+Molloy&background=fb923c&color=fff&size=150" alt="AM" class="profile-img">
         <h1>Ashwyn Molloy</h1>
         <p class="tagline">Junior Fullstack Developer</p>
     </header>
@@ -67,31 +74,43 @@
     <div class="container">
         <h2>About Me</h2>
         <div class="about-text">
-            <p>I am a <span class="highlight">passionate starter in web development</span> with a focus on building clean, functional, and user-centered applications. My journey began with a curiosity for how the web works, which evolved into a dedicated path of learning <span class="highlight">PHP, JavaScript, and modern CSS</span>.</p>
+            <p>I am a <span class="highlight">passionate starter in web development</span> focused on building data-driven, functional applications. My journey is built on a foundation of <span class="highlight">PHP, JavaScript, and SQL</span>, with a deep interest in how open-source APIs can solve everyday problems.</p>
+            <br>
+            <p>As a junior developer, I thrive on learning how to bridge the gap between complex backend logic and intuitive frontend design. I am currently building projects that demonstrate my ability to handle API data, secure user authentication, and responsive UI/UX.</p>
         </div>
     </div>
 
     <div class="container">
         <h2>Technical Projects</h2>
         <div class="project-grid">
+            
             <div class="project-card">
-                <span class="tech-tag">PHP • MYSQL</span>
+                <span class="tech-tag">PHP • MYSQL • BOOTSTRAP</span>
                 <h3>Secure Task Manager</h3>
-                <p>Fullstack CRUD application with secure login and data persistence.</p>
+                <p>A fullstack CRUD application featuring secure user sessions, task persistence, and password hashing.</p>
                 <a href="task-manager.html" class="project-link">View Project Details</a>
             </div>
 
             <div class="project-card">
-                <span class="tech-tag">JAVASCRIPT • API</span>
-                <h3>Dynamic Weather Hub</h3>
-                <p>Real-time weather data visualization using OpenWeather API.</p>
-                <a href="weather-hub.html" class="project-link">View Project Details</a>
+                <span class="tech-tag">JS (ES6) • OPEN FOOD FACTS API</span>
+                <h3>Open Food Checker</h3>
+                <p>A real-time nutritional analysis tool fetching global product data, Nutri-Scores, and macro breakdowns.</p>
+                <a href="nutrition-checker.html" class="project-link">View Project Details</a>
             </div>
+
+            <div class="project-card">
+                <span class="tech-tag">HTML5 • CSS GRID • RWD</span>
+                <h3>Creative Agency Page</h3>
+                <p>A mobile-first landing page emphasizing semantic HTML, accessibility, and modern CSS layout techniques.</p>
+                <a href="agency.html" class="project-link">View Project Details</a>
+            </div>
+
         </div>
     </div>
 
     <footer>
-        <p>Built by Ashwyn Molloy &copy; 2025 | Open to New Opportunities</p>
+        <p>Built by Ashwyn Molloy &copy; 2025 | Junior Developer Portfolio</p>
+        <p style="font-size: 0.8rem; margin-top: 5px;">Currently seeking new opportunities</p>
     </footer>
 
 </body>
