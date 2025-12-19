@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Task Manager | Ashwyn Molloy</title>
+    <style>
+        :root { --primary: #6366f1; --bg: #0b0e14; --card: #161b22; --text: #e6edf3; --text-dim: #8b949e; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        .nav { padding: 20px; border-bottom: 1px solid #30363d; }
+        .nav a { color: var(--primary); text-decoration: none; font-weight: bold; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+        .meta { color: var(--text-dim); font-weight: bold; margin-bottom: 30px; letter-spacing: 1px; }
+        .content-box { background: var(--card); border: 1px solid #30363d; padding: 30px; border-radius: 12px; }
+        h3 { margin: 25px 0 10px 0; color: var(--primary); }
+        ul { margin-left: 20px; color: var(--text-dim); }
+        li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="nav"><a href="index.html">← Back to Portfolio</a></div>
+    <div class="container">
+        <h1>Secure Task Manager</h1>
+        <p class="meta">PHP / MYSQL / BOOTSTRAP</p>
+        <div class="content-box">
+            <h3>The Challenge</h3>
+            <p>I wanted to build a tool that handled user data securely. The goal was to create a productivity app where users could register, log in, and save their tasks to a permanent database.</p>
+            
+            <h3>Technical Implementation</h3>
+            <ul>
+                <li><strong>Backend:</strong> Built with PHP to handle server-side logic and session management.</li>
+                <li><strong>Database:</strong> Designed a MySQL schema to store users and tasks with relational links.</li>
+                <li><strong>Security:</strong> Implemented password hashing using `password_hash()` and protected against SQL injection using Prepared Statements.</li>
+            </ul>
+
+            <h3>Key Learning</h3>
+            <p>This project taught me the importance of the Request-Response cycle and how to manage state across different pages using PHP Sessions.</p>
+        </div>
+    </div>
+</body>
+</html>
