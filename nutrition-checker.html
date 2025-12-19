@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Food Checker | Ashwyn Molloy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #fb923c; --bg: #0b0e14; --card: #161b22; --text: #e6edf3; --text-dim: #8b949e; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+        
+        .nav { padding: 20px; border-bottom: 1px solid #30363d; }
+        .nav a { color: var(--primary); text-decoration: none; font-weight: bold; }
+
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        
+        .main-card {
+            background: var(--card); padding: 30px; border-radius: 20px;
+            border: 1px solid #30363d; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .header-area { text-align: center; margin-bottom: 30px; }
+        .header-area i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+
+        .search-box { display: flex; gap: 10px; margin-bottom: 30px; }
+        input {
+            flex: 1; padding: 15px; border-radius: 10px; border: 1px solid #30363d;
+            background: #0b0e14; color: white; outline: none; font-size: 1rem;
+        }
+        input:focus { border-color: var(--primary); }
+        
+        button {
+            padding: 0 25px; background: var(--primary); color: white;
+            border: none; border-radius: 10px; cursor: pointer; font-weight: bold;
+        }
+
+        .result-area { display: none; border-top: 1px solid #30363d; padding-top: 30px; }
+        .product-header { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; }
+        .product-img { width: 100px; height: 100px; object-fit: contain; background: white; border-radius: 10px; padding: 5px; }
+
+        .nutriscore {
+            display: inline-block; padding: 5px 15px; border-radius: 5px;
+            font-weight: bold; font-size: 1.2rem; text-transform: uppercase;
+            margin-bottom: 20px; background: #1c2128; border: 1px solid var(--primary);
+        }
+
+        .nutrition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .stat-box { background: #1c2128; padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #30363d; }
+        .stat-value { display: block; font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        .stat-label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; }
+
+        #error { color: #f43f5e; text-align: center; margin-top: 20px; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="nav"><a href="index.html">← Back to Portfolio</a></div>
+
+    <div class="container">
+        <div class="main-card">
+            <div class="header-area">
+                <i class="fas fa-barcode"></i>
+                <h1>Open Food Checker</h1>
+                <p style="color:var(--text-dim)">Search for a brand or product name</p>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="foodInput" placeholder="e.g. Nutella, KitKat, Oreo...">
+                <button onclick="searchFood()">Search</button>
+            </div>
+
+            <div id="resultArea" class="result-area">
+                <div class="product-header">
+                    <img id="productImg" src="" alt="" class="product-img">
+                    <div>
+                        <h2 id="productTitle">Product Name</h2>
+                        <div id="nutriscore" class="nutriscore">Grade: -</div>
+                    </div>
+                </div>
+
+                <div class="nutrition-grid">
+                    <div class="stat-box">
+                        <span class="stat-value" id="energy">0</span>
+                        <span class="stat-label">kcal / 100g</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="sugar">0g</span>
+                        <span class="stat-label">Sugars</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="salt">0g</span>
+                        <span class="stat-label">Salt</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="fat">0g</span>
+                        <span class="stat-label">Fat</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p id="error">Product not found in the Open Food Facts database.</p>
+        </div>
+    </div>
+
+    <script>
+        async function searchFood() {
+            const query = document.getElementById('foodInput').value;
+            const resultArea = document.getElementById('resultArea');
+            const error = document.getElementById('error');
+
+            if (!query) return;
+
+            try {
+                // Open Food Facts Search API (No key required)
+                const response = await fetch(`https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(query)}&search_simple=1&action=process&json=1`);
+                const data = await response.json();
+
+                if (!data.products || data.products.length === 0) {
+                    throw new Error("No products found");
+                }
+
+                // Pick the first result
+                const product = data.products[0];
+                const nutrients = product.nutriments;
+
+                // Update UI
+                document.getElementById('productTitle').innerText = product.product_name || "Unknown Product";
+                document.getElementById('productImg').src = product.image_front_small_url || "https://via.placeholder.com/100";
+                document.getElementById('nutriscore').innerText = `Nutri-Score: ${product.nutriscore_grade || 'N/A'}`;
+                
+                document.getElementById('energy').innerText = Math.round(nutrients['energy-kcal_100g'] || 0);
+                document.getElementById('sugar').innerText = (nutrients.sugars_100g || 0).toFixed(1) + 'g';
+                document.getElementById('salt').innerText = (nutrients.salt_100g || 0).toFixed(2) + 'g';
+                document.getElementById('fat').innerText = (nutrients.fat_100g || 0).toFixed(1) + 'g';
+
+                resultArea.style.display = 'block';
+                error.style.display = 'none';
+            } catch (err) {
+                resultArea.style.display = 'none';
+                error.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
