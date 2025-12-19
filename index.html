@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashwyn Molloy | Junior Fullstack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #fb923c; /* Orange theme to match Open Food Facts */
+            --primary: #fb923c; 
             --bg: #0b0e14;
             --card: #161b22;
             --text: #e6edf3;
             --text-dim: #8b949e;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
         /* Header Section */
@@ -31,15 +32,14 @@
         h1 { font-size: 2.8rem; margin-bottom: 10px; }
         .tagline { color: var(--primary); font-weight: bold; font-size: 1.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* General Container */
+        /* Container & Layout */
         .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
         h2 { font-size: 1.8rem; margin-bottom: 20px; color: var(--primary); border-bottom: 1px solid #30363d; padding-bottom: 10px; }
         
-        /* About Section */
         .about-text { font-size: 1.1rem; color: var(--text); margin-bottom: 30px; }
         .highlight { color: var(--primary); font-weight: 600; }
 
-        /* Project Grid */
+        /* Project Cards */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .project-card {
             background: var(--card); border: 1px solid #30363d;
@@ -48,17 +48,16 @@
         .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
         .tech-tag { font-size: 0.7rem; font-weight: bold; color: var(--primary); display: block; margin-bottom: 8px; text-transform: uppercase; }
         
+        .project-links { display: flex; gap: 15px; margin-top: 20px; }
         .project-link { 
-            display: inline-block;
             color: var(--text); 
             text-decoration: none; 
-            margin-top: 15px;
             font-weight: bold; 
             font-size: 0.9rem; 
             border-bottom: 2px solid var(--primary); 
             transition: 0.2s;
         }
-        .project-link:hover { padding-left: 5px; color: var(--primary); }
+        .project-link:hover { color: var(--primary); }
 
         footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid #30363d; margin-top: 40px; }
     </style>
@@ -74,9 +73,9 @@
     <div class="container">
         <h2>About Me</h2>
         <div class="about-text">
-            <p>I am a <span class="highlight">passionate starter in web development</span> focused on building data-driven, functional applications. My journey is built on a foundation of <span class="highlight">PHP, JavaScript, and SQL</span>, with a deep interest in how open-source APIs can solve everyday problems.</p>
+            <p>I am a <span class="highlight">passionate starter in web development</span> with a focus on building functional, data-driven applications. My journey is built on a foundation of <span class="highlight">PHP, JavaScript, and SQL</span>, with a deep interest in exploring how open-source APIs can solve everyday problems.</p>
             <br>
-            <p>As a junior developer, I thrive on learning how to bridge the gap between complex backend logic and intuitive frontend design. I am currently building projects that demonstrate my ability to handle API data, secure user authentication, and responsive UI/UX.</p>
+            <p>I thrive on the challenge of bridging backend logic with intuitive frontend design. Currently, I am focused on mastering the full development lifecycle—from database schema design to responsive UI implementation.</p>
         </div>
     </div>
 
@@ -88,21 +87,30 @@
                 <span class="tech-tag">PHP • MYSQL • BOOTSTRAP</span>
                 <h3>Secure Task Manager</h3>
                 <p>A fullstack CRUD application featuring secure user sessions, task persistence, and password hashing.</p>
-                <a href="task-manager.html" class="project-link">View Project Details</a>
+                <div class="project-links">
+                    <a href="task-manager.html" class="project-link">Case Study</a>
+                    <a href="https://github.com/and1mo/task-crud" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> GitHub Repo
+                    </a>
+                </div>
             </div>
 
             <div class="project-card">
                 <span class="tech-tag">JS (ES6) • OPEN FOOD FACTS API</span>
                 <h3>Open Food Checker</h3>
                 <p>A real-time nutritional analysis tool fetching global product data, Nutri-Scores, and macro breakdowns.</p>
-                <a href="nutrition-checker.html" class="project-link">View Project Details</a>
+                <div class="project-links">
+                    <a href="nutrition-checker.html" class="project-link">Live Demo</a>
+                </div>
             </div>
 
             <div class="project-card">
                 <span class="tech-tag">HTML5 • CSS GRID • RWD</span>
                 <h3>Creative Agency Page</h3>
                 <p>A mobile-first landing page emphasizing semantic HTML, accessibility, and modern CSS layout techniques.</p>
-                <a href="agency.html" class="project-link">View Project Details</a>
+                <div class="project-links">
+                    <a href="agency.html" class="project-link">View Page</a>
+                </div>
             </div>
 
         </div>
@@ -110,7 +118,7 @@
 
     <footer>
         <p>Built by Ashwyn Molloy &copy; 2025 | Junior Developer Portfolio</p>
-        <p style="font-size: 0.8rem; margin-top: 5px;">Currently seeking new opportunities</p>
+        <p style="font-size: 0.8rem; margin-top: 5px;">Always learning. Always building.</p>
     </footer>
 
 </body>
