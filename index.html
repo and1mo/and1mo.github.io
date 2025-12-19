@@ -3,83 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashwyn Molloy | Fullstack Portfolio</title>
+    <title>Ashwyn Molloy | Junior Fullstack Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #6366f1; /* Indigo */
+            --primary: #6366f1; 
             --bg: #0b0e14;
             --card: #161b22;
             --text: #e6edf3;
             --text-dim: #8b949e;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
+        /* Header & Intro */
         header {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to bottom, #161b22, #0b0e14);
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, #1c2128, #0b0e14);
             border-bottom: 1px solid #30363d;
         }
-
         .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--primary);
-            margin-bottom: 20px;
+            width: 140px; height: 140px; border-radius: 50%;
+            border: 3px solid var(--primary); margin-bottom: 20px;
+            object-fit: cover;
         }
+        h1 { font-size: 2.8rem; margin-bottom: 10px; }
+        .tagline { color: var(--primary); font-weight: bold; font-size: 1.2rem; margin-bottom: 20px; }
 
-        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .tagline { color: var(--primary); font-weight: bold; letter-spacing: 1px; }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
+        /* Sections */
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        h2 { font-size: 1.8rem; margin-bottom: 20px; color: var(--primary); border-bottom: 1px solid #30363d; padding-bottom: 10px; }
         
-        h2 { margin-bottom: 30px; font-size: 1.8rem; display: flex; align-items: center; gap: 10px; }
-        h2::after { content: ""; height: 1px; background: #30363d; flex: 1; }
+        /* About Me Description */
+        .about-text { font-size: 1.1rem; color: var(--text); margin-bottom: 30px; }
+        .highlight { color: var(--primary); font-weight: 600; }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
+        /* Project Cards */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .project-card {
-            background: var(--card);
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 25px;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--card); border: 1px solid #30363d;
+            border-radius: 10px; padding: 25px; transition: 0.3s;
         }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .tech-tag { font-size: 0.7rem; font-weight: bold; color: var(--primary); display: block; margin-bottom: 8px; }
+        .links a { color: var(--text); text-decoration: none; margin-right: 15px; font-weight: bold; font-size: 0.9rem; border-bottom: 2px solid var(--primary); }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .tech-stack {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .project-card h3 { margin-bottom: 15px; }
-        .project-card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; }
-
-        .links { display: flex; gap: 15px; }
-        .links a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 600; border-bottom: 2px solid var(--primary); }
-
-        footer { text-align: center; padding: 50px; border-top: 1px solid #30363d; color: var(--text-dim); }
+        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -87,65 +58,50 @@
     <header>
         <img src="https://ui-avatars.com/api/?name=Ashwyn+Molloy&background=6366f1&color=fff&size=150" alt="AM" class="profile-img">
         <h1>Ashwyn Molloy</h1>
-        <p class="tagline">FULLSTACK DEVELOPER</p>
+        <p class="tagline">Junior Fullstack Developer</p>
     </header>
 
     <div class="container">
-        <h2>Recent Projects</h2>
-        
-        <div class="project-grid">
-            <div class="project-card">
-                <span class="tech-stack">PHP • MySQL • Bootstrap</span>
-                <h3>Inventory Management System</h3>
-                <p>A secure CRUD application for tracking warehouse stock. Features include user authentication, PDF report generation, and automated low-stock alerts.</p>
-                <div class="links">
-                    <a href="#">View Code</a>
-                    <a href="#">Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <span class="tech-stack">JavaScript (ES6) • CSS3</span>
-                <h3>Interactive Weather Dashboard</h3>
-                <p>A dynamic weather app using the OpenWeather API. Features dynamic background changes based on climate and 5-day forecast visualization.</p>
-                <div class="links">
-                    <a href="#">View Code</a>
-                    <a href="#">Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <span class="tech-stack">HTML5 • Flexbox • Sass</span>
-                <h3>Corporate Landing Page</h3>
-                <p>A high-conversion, fully responsive landing page built with modern CSS techniques. Optimized for mobile-first performance and SEO.</p>
-                <div class="links">
-                    <a href="#">View Code</a>
-                    <a href="#">Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <span class="tech-stack">PHP • AJAX • JavaScript</span>
-                <h3>Real-time Task Board</h3>
-                <p>A productivity tool using PHP backend and AJAX for seamless, no-refresh task updates. Includes drag-and-drop sorting and SQL data persistence.</p>
-                <div class="links">
-                    <a href="#">View Code</a>
-                    <a href="#">Live Demo</a>
-                </div>
-            </div>
+        <h2>About Me</h2>
+        <div class="about-text">
+            <p>I am a <span class="highlight">passionate starter in web development</span> with a focus on building clean, functional, and user-centered applications. My journey began with a curiosity for how the web works, which evolved into a dedicated path of learning <span class="highlight">PHP, JavaScript, and modern CSS</span>.</p>
+            <br>
+            <p>As a junior developer, I thrive on solving logical puzzles and turning ideas into interactive reality. I am currently honing my skills in fullstack architecture, focusing on how backend data (PHP/MySQL) powers the frontend experience (HTML/JS). I am eager to contribute to a collaborative team where I can grow and tackle real-world challenges.</p>
         </div>
     </div>
 
     <div class="container">
-        <h2>Skills</h2>
-        <p style="color: var(--text-dim);">
-            <strong>Languages:</strong> PHP, JavaScript (ES6+), SQL, HTML5, CSS3 <br>
-            <strong>Tools:</strong> Git/GitHub, MySQL Workbench, XAMPP, VS Code
-        </p>
+        <h2>Technical Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <span class="tech-tag">PHP • MYSQL • CSS</span>
+                <h3>Secure Task Manager</h3>
+                <p>A fullstack CRUD application allowing users to manage daily tasks with secure login and data persistence.</p>
+                <div class="links"><a href="#">GitHub</a><a href="#">Demo</a></div>
+            </div>
+
+            <div class="project-card">
+                <span class="tech-tag">JAVASCRIPT (ES6) • API</span>
+                <h3>Dynamic Weather Hub</h3>
+                <p>Fetches real-time data from OpenWeather API to provide localized forecasts with dynamic UI updates.</p>
+                <div class="links"><a href="#">GitHub</a><a href="#">Demo</a></div>
+            </div>
+
+            <div class="project-card">
+                <span class="tech-tag">HTML5 • FLEXBOX • ANIMATIONS</span>
+                <h3>Creative Agency Landing Page</h3>
+                <p>A mobile-first responsive landing page focused on high-performance animations and modern typography.</p>
+                <div class="links"><a href="#">GitHub</a><a href="#">Demo</a></div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Ashwyn Molloy | Built with HTML, CSS, and JS</p>
+        <p>Built by Ashwyn Molloy &copy; 2025 | Open to New Opportunities</p>
+        <div style="margin-top:15px">
+            <a href="#" style="color:var(--text-dim); font-size:1.5rem; margin:0 10px"><i class="fab fa-github"></i></a>
+            <a href="#" style="color:var(--text-dim); font-size:1.5rem; margin:0 10px"><i class="fab fa-linkedin"></i></a>
+        </div>
     </footer>
 
 </body>
