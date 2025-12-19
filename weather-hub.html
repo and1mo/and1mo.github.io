@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Weather Hub | Ashwyn Molloy</title>
+    <style>
+        :root { --primary: #0ea5e9; --bg: #0b0e14; --card: #161b22; --text: #e6edf3; --text-dim: #8b949e; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        .nav { padding: 20px; border-bottom: 1px solid #30363d; }
+        .nav a { color: var(--primary); text-decoration: none; font-weight: bold; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+        .meta { color: var(--text-dim); font-weight: bold; margin-bottom: 30px; letter-spacing: 1px; }
+        .content-box { background: var(--card); border: 1px solid #30363d; padding: 30px; border-radius: 12px; }
+        h3 { margin: 25px 0 10px 0; color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="nav"><a href="index.html">← Back to Portfolio</a></div>
+    <div class="container">
+        <h1>Dynamic Weather Hub</h1>
+        <p class="meta">JAVASCRIPT (ES6) / FETCH API / CSS3</p>
+        <div class="content-box">
+            <h3>The Project</h3>
+            <p>A sleek dashboard that fetches live weather data for any city in the world. It features a dynamic UI that changes background colors based on the temperature.</p>
+            
+            <h3>Core Features</h3>
+            <p style="color: var(--text-dim);">
+                • Real-time data fetching using the <strong>Fetch API</strong>.<br>
+                • Error handling for invalid city names.<br>
+                • Implementation of LocalStorage to remember the user's last searched city.
+            </p>
+
+            <h3>The Growth Moment</h3>
+            <p>Dealing with <strong>Asynchronous JavaScript</strong> (Promises and Async/Await) was a huge milestone for me during this build. It taught me how to handle "waiting" for data without freezing the user interface.</p>
+        </div>
+    </div>
+</body>
+</html>
